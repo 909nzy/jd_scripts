@@ -1,1 +1,12 @@
+#!name=京东抢券模块
+#!desc=自动抓取京东优惠券接口并执行抢券
 
+[MITM]
+hostname = m.jd.com, api.m.jd.com
+
+[Script]
+# 接口嗅探脚本
+http-response ^https?://api\.m\.jd\.com/client\.action requires-body=1,script-path=https://raw.githubusercontent.com/你的GitHub账号/jd_脚本/main/JD_Coupon_Sniffer.js
+
+# 抢券攻击脚本（示例）
+cron "0 59 9 * * *" script-path=https://raw.githubusercontent.com/你的GitHub账号/jd_脚本/main/JD_Coupon_Attack.js,timeout=300
