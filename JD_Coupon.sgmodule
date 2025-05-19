@@ -1,0 +1,9 @@
+#!name=京东抢券
+#!desc=全自动抢券 无需配置
+
+[MITM]
+hostname = api.m.jd.com
+
+[Script]
+http-response ^https?://api\.m\.jd\.com/client\.action requires-body=1,script-path=https://raw.githubusercontent.com/909nzy/jd_scripts/main/JD_Auto.js
+cron "0 59 9 * * *" script-path=https://raw.githubusercontent.com/909nzy/jd_scripts/main/JD_Auto.js
